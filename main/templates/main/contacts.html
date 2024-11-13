@@ -1,0 +1,44 @@
+
+{% block content %}
+<div class="container my-5">
+    <div class="card shadow-lg border-0">
+        <div class="card-body">
+            <!-- Основной заголовок страницы -->
+            <h2 class="card-title text-center text-primary mb-4">Контакты</h2>
+
+            <!-- Контактная информация -->
+            <div class="text-center mb-4">
+                <p><strong>Адрес:</strong> 123456, г. Москва, ул. Ленина, д. 10</p>
+                <p><strong>Телефон:</strong> +7 (495) 123-45-67</p>
+                <p><strong>Email:</strong> <a href="mailto:info@medcent.ru">info@medcent.ru</a></p>
+            </div>
+            <hr>
+
+            <!-- Заголовок формы -->
+            <h3 class="text-center mt-4 text-secondary">Форма обратной связи</h3>
+
+            <!-- Форма обратной связи -->
+            <form method="post" action="{% url 'main:contacts' %}" class="p-4">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">Ваше имя</label>
+                    <input type="text" class="form-control border-primary" id="name" name="name" required placeholder="Введите ваше имя">
+                </div>
+                <div class="form-group">
+                    <label for="email">Ваш email</label>
+                    <input type="email" class="form-control border-primary" id="email" name="email" required placeholder="Введите ваш email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Сообщение</label>
+                    <textarea class="form-control border-primary" id="message" name="message" rows="4" required placeholder="Введите ваше сообщение"></textarea>
+                </div>
+
+                <!-- Кнопка отправки -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary mt-3 px-5">Отправить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
