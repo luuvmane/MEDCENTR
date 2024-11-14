@@ -17,7 +17,7 @@ def send_email_for_patient(email, appointment: Appointment):
         'Запись на прием',
         f'Вы записаны на прием к врачу: {appointment.doctor}\n'
         f'Дата: {appointment.date} Время: {appointment.time}\n'
-        f'Услуга: {appointment.service} Цена: {appointment.price} руб.',
+        f'Услуга: {appointment.service}',
         settings.EMAIL_HOST_USER,
         email
     )
